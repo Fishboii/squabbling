@@ -10,10 +10,12 @@ def test_detection():
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     for char in alphabet:
         out = char+": "
-        if(pyautogui.locateOnScreen(currdir + "/charimgs/"+char+"_yellow.png", grayscale=False, confidence=0.9)):
+        if(pyautogui.locateOnScreen(currdir + "/charimgs/"+char+"_yellow.png", grayscale=False, confidence=0.88)):
             out += "Y"
-        if(pyautogui.locateOnScreen(currdir + "/charimgs/"+char+"_green.png", grayscale=False, confidence=0.9)):
+        if(pyautogui.locateOnScreen(currdir + "/charimgs/"+char+"_green.png", grayscale=False, confidence=0.88)):
             out += "G"
         print(out)
     #number of empty cells is always fewer by 1 as the script does not detect the cell the cursor is on
-    print(len(list(pyautogui.locateAllOnScreen(currdir+"/empty.png", grayscale=False))))
+    print(len(list(pyautogui.locateAllOnScreen(currdir+"/empty.png", grayscale=False, confidence=0.9))))
+
+test_detection()
