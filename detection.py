@@ -23,7 +23,7 @@ def find_cursor():
     finds the current letter cursor
     """
     currdir = sys.path[0]
-    return pyautogui.locateOnScreen(currdir + "/cursor.png", grayscale = False, confidence = 0.85)
+    return pyautogui.locateOnScreen(currdir + "/cursor.png", grayscale = False, confidence = 0.75)
 
 
 def find_empty():
@@ -39,6 +39,8 @@ def test_yellow(x, y):
     return pyautogui.pixelMatchesColor(int(x), int(y), (214, 190, 0), tolerance=10)
 def test_green(x, y):
     return pyautogui.pixelMatchesColor(int(x), int(y), (46, 216, 60), tolerance=10)
+def test_empty(x, y):
+    return pyautogui.pixelMatchesColor(int(x), int(y), (167, 113, 248), tolerance=1)
 def get_length_diff():
     cursor = find_cursor().left
     empty = find_empty().left
@@ -46,10 +48,11 @@ def get_length_diff():
 #green : 2ED83C aka 46, 216, 60
 #yellow: D6BE00 aka 214, 190, 0
 
-
+"""
 #for i in range(5):
 #    test_yellow()
 currdir = sys.path[0]
 print(pyautogui.locateOnScreen(currdir + "/empty.png", grayscale = False, confidence=0.75))
 print(pyautogui.locateOnScreen(currdir + "/cursor.png", grayscale = False, confidence=0.75))
-pyautogui.moveTo(get_box_colour_region(find_cursor())[0], get_box_colour_region(find_cursor())[1])
+#pyautogui.moveTo(get_box_colour_region(find_cursor())[0], get_box_colour_region(find_cursor())[1])
+"""
